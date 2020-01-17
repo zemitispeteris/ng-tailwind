@@ -1,0 +1,69 @@
+@mixin attention() {
+  &:hover,
+  &:active,
+  &:focus {
+    @content;
+  }
+}
+
+
+
+@mixin font-face($name) {
+  @font-face {
+    font-family: $name;
+    src: url($font-path + $name + '.eot'); /* IE9 Compat Modes */
+    src: url($font-path + $name + '.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      /*url($font-path + $name + '.woff2') format('woff2'),  Super Modern Browsers */
+    url($font-path + $name + '.woff') format('woff'), /* Pretty Modern Browsers */
+    url($font-path + $name + '.ttf') format('truetype'),/* Safari, Android, iOS */
+
+  }
+}
+
+
+@mixin prefixer($prop, $value) {
+  -webkit-#{$prop}: #{$value};
+  -moz-#{$prop}: #{$value};
+  -ms-#{$prop}: #{$value};
+  -o-#{$prop}: #{$value};
+  #{$prop}: #{$value};
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+
+@mixin breakpoint($mq01: 0, $mq2: false, $maxmin: max-width) {
+  @if $mq2 == false {
+    @media ($maxmin: $mq01) {
+      @content;
+    }
+  }
+  @else {
+    @media (min-width: $mq01) and (max-width: $mq2) {
+      @content;
+    }
+  }
+}
+
+
+@mixin font-size-map($font-size-map) {
+  @each $breakpoint, $font-size in $font-size-map {
+    @if $breakpoint == null {
+      font-size: em($font-size);
+    } @else {
+      @include breakpoint($breakpoint) {
+        font-size: em($font-size);
+      }
+    }
+  }
+}

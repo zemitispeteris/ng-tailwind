@@ -1,0 +1,35 @@
+@function half($n) {
+  @return round($n / 2);
+}
+
+@function quarter($n) {
+  @return round($n / 4);
+}
+
+@function double($n) {
+  @return round($n * 2);
+}
+
+@function quadruple($n) {
+  @return round($n * 4);
+}
+
+.f {
+  @each $font-family in $font-families {
+    &-#{$font-family} {
+      font-family: $font-family;
+    }
+  }
+}
+
+@function em($pixels, $context: $browser-context) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return $pixels / $context * 1em;
+}
+
+

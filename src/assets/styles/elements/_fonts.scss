@@ -1,0 +1,38 @@
+@include font-face('OLNEYb');
+@include font-face('NBAr');
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: em(32px);
+}
+
+h2 {
+  font-size: em(24px);
+}
+
+h3 {
+  font-size: em(18.72px);
+}
+
+h4 {
+  font-size: em(16px);
+}
+
+h5 {
+  font-size: em(13.28px);
+}
+
+h6 {
+  font-size: em(10.72px);
+}

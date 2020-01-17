@@ -1,0 +1,14 @@
+
+
+$config: (
+  debug: false,
+  mq-show-breakpoints: false
+);
+
+@function config($key) {
+  @return map-get($config, $key);
+}
+
+$font-path: '../fonts/';
+
+$body-font-size: (null: 16, $lg:15, $md: 14, $sm: 13);
